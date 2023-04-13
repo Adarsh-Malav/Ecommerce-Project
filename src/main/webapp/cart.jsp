@@ -14,7 +14,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   
+   <style type="text/css">
+   .bttnStyle
+   {
+   		background-color: lightblue;
+   		border-radius: 0.5rem;
+   		border:1px solid transperent;
+   }
+   </style>
 
   </head>
   <body>
@@ -111,56 +118,10 @@
                    </tr>
                  </tbody>
                </table>
-               <form method="post" action="pgRedirect.jsp">
-		<table border="1">
-			<tbody>
-				<tr>
-					<th>S.No</th>
-					<th>Label</th>
-					<th>Value</th>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td><label>ORDER_ID::*</label></td>
-					<td><input id="ORDER_ID" tabindex="1" maxlength="20" size="20"
-						name="ORDER_ID" autocomplete="off"
-						value="ORDS_<%= randomInt %>">
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td><label>CUSTID ::*</label></td>
-					<td><input id="CUST_ID" tabindex="2" maxlength="30" size="12" name="CUST_ID" autocomplete="off" value="CUST001"></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td><label>INDUSTRY_TYPE_ID ::*</label></td>
-					<td><input id="INDUSTRY_TYPE_ID" tabindex="4" maxlength="12" size="12" name="INDUSTRY_TYPE_ID" autocomplete="off" value="Retail"></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td><label>Channel ::*</label></td>
-					<td><input id="CHANNEL_ID" tabindex="4" maxlength="12"
-						size="12" name="CHANNEL_ID" autocomplete="off" value="WEB">
-					</td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td><label>txnAmount*</label></td>
-					<td><input title="TXN_AMOUNT" tabindex="10"
-						type="text" name="TXN_AMOUNT"
-						value="1">
-					</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td><input value="Proced to Checkout" type="submit"	class="aa-cart-view-btn"></td>
-				</tr>
-			</tbody>
-		</table>
-		* - Mandatory Fields
-	</form>
+               <form>
+					<input type="text" id="amount" name="amount" value="<%=net_price%>">
+				</form>
+            <button id="payButton" onclick="CreateOrderID()" class="bttnStyle">Pay Now</button>
              </div>
            </div>
          </div>
@@ -172,116 +133,11 @@
 
 
   <!-- Subscribe section -->
-  <section id="aa-subscribe">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-subscribe-area">
-            <h3>Subscribe our newsletter </h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, velit!</p>
-            <form action="" class="aa-subscribe-form">
-              <input type="email" name="" id="" placeholder="Enter your Email">
-              <input type="submit" value="Subscribe">
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
   <!-- / Subscribe section -->
 
   <!-- footer -->  
-  <footer id="aa-footer">
-    <!-- footer bottom -->
-    <div class="aa-footer-top">
-     <div class="container">
-        <div class="row">
-        <div class="col-md-12">
-          <div class="aa-footer-top-area">
-            <div class="row">
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <h3>Main Menu</h3>
-                  <ul class="aa-footer-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Our Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <div class="aa-footer-widget">
-                    <h3>Knowledge Base</h3>
-                    <ul class="aa-footer-nav">
-                      <li><a href="#">Delivery</a></li>
-                      <li><a href="#">Returns</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">Discount</a></li>
-                      <li><a href="#">Special Offer</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <div class="aa-footer-widget">
-                    <h3>Useful Links</h3>
-                    <ul class="aa-footer-nav">
-                      <li><a href="#">Site Map</a></li>
-                      <li><a href="#">Search</a></li>
-                      <li><a href="#">Advanced Search</a></li>
-                      <li><a href="#">Suppliers</a></li>
-                      <li><a href="#">FAQ</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <div class="aa-footer-widget">
-                    <h3>Contact Us</h3>
-                    <address>
-                      <p> 25 Astor Pl, NY 10003, USA</p>
-                      <p><span class="fa fa-phone"></span>+1 212-982-4589</p>
-                      <p><span class="fa fa-envelope"></span>dailyshop@gmail.com</p>
-                    </address>
-                    <div class="aa-footer-social">
-                      <a href="#"><span class="fa fa-facebook"></span></a>
-                      <a href="#"><span class="fa fa-twitter"></span></a>
-                      <a href="#"><span class="fa fa-google-plus"></span></a>
-                      <a href="#"><span class="fa fa-youtube"></span></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-     </div>
-    </div>
-    <!-- footer-bottom -->
-    <div class="aa-footer-bottom">
-      <div class="container">
-        <div class="row">
-        <div class="col-md-12">
-          <div class="aa-footer-bottom-area">
-            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
-            <div class="aa-footer-payment">
-              <span class="fa fa-cc-mastercard"></span>
-              <span class="fa fa-cc-visa"></span>
-              <span class="fa fa-paypal"></span>
-              <span class="fa fa-cc-discover"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </footer>
+
   <!-- / footer -->
   <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -307,7 +163,61 @@
     </div><!-- /.modal-dialog -->
   </div>
 
+<script type="text/javascript">
+	var xhttp=new XMLHttpRequest();
+	var RazorpayOrderId;
+	function CreateOrderID()
+	{
+		xhttp.open("GET","http://localhost:8080/MyProject/OrderCreation",false);
+		xhttp.send();
+		RazorpayOrderId=xhttp.responseText;
+		OpenCheckOut();
+	}
+</script>
 
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script type="text/javascript">
+	
+	
+	function OpenCheckOut()
+	{
+		var amount=document.getElementById("amount").value;
+		var new_amount=parseInt(amount)*100;
+		var options={
+				"key":"rzp_test_WhWQffOcDwCYx0",
+				"amount":new_amount,
+				"currency":"INR",
+				"name":"Tops",
+				"description":"Test",
+				"callback_url":"http://localhost:8080/MyProject/index.jsp?id=<%=u.getId()%>",
+				"prefill":{
+					"name":"Adarsh Malav",
+					"email":"malav.adarsh0045@gmail.com",
+					"contact":"9962146456"
+				},
+				"notes":{
+					"address":"Surat"
+				},
+				"theme":{
+					"color":"#3399cc"
+				}
+				
+				
+		};
+		var rzp1=new Razorpay(options);
+		rzp1.on('payment.failed',function (response){
+			alert(response.error.code);
+	        alert(response.error.description);
+	        alert(response.error.source);
+	        alert(response.error.step);
+	        alert(response.error.reason);
+	        alert(response.error.metadata.order_id);
+	        alert(response.error.metadata.payment_id);
+		});
+		rzp1.open();
+	    e.preventDefault();
+	}
+</script>
     
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

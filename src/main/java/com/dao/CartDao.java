@@ -62,12 +62,14 @@ public class CartDao {
 	}
 	public static List<Cart> getCartByUser(int uid)
 	{
+		boolean status=false;
 		List<Cart> list=new ArrayList<Cart>();
 		try {
 			Connection conn=ProjectUtil.createConnection();
-			String sql="select * from cart where uid=?";
+			String sql="select * from cart where uid=? and payment_status=?";
 			PreparedStatement pst=conn.prepareStatement(sql);
 			pst.setInt(1, uid);
+			pst.setBoolean(2, status);
 			ResultSet rs=pst.executeQuery();
 			while(rs.next())
 			{
@@ -131,5 +133,21 @@ public class CartDao {
 		}
 		return cart_flag;
 	}
+	
+	public static void updateCartStatus(int cid)
+	{
+		boolean status=true;
+		try {
+			Connection conn=ProjectUtil.createConnection();
+			String sql="update cart set payment_status=? where cid=?";
+			PreparedStatement pst=conn.prepareStatement(sql);
+			pst.setBoolean(1, status);
+			pst.setInt(2, cid);
+			pst.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	
 }

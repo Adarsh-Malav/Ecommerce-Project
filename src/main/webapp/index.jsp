@@ -1,9 +1,30 @@
+<%@page import="com.dao.CartDao"%>
+<%@page import="com.bean.Cart"%>
 <%@page import="java.util.List"%>
 <%@page import="com.bean.Product"%>
 <%@page import="com.dao.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-  	<%@include file="header.jsp" %>
+<%@include file="header.jsp" %>
+  	
+  <%
+	int id=0;
+	try{
+		id=Integer.parseInt(request.getParameter("id"));
+	}catch(Exception e){
+	}
+	if(id!=0)
+	{
+		List<Cart> list=CartDao.getCartByUser(id);
+		for(Cart c:list)
+		{
+			CartDao.updateCartStatus(c.getCid());
+		}
+		List<Cart> list1=CartDao.getCartByUser(id);
+		session.setAttribute("cart_count", list1.size());
+		response.sendRedirect("cart.jsp");
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
